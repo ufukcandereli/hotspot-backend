@@ -4,7 +4,7 @@ services:
     image: postgres:15
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_PASSWORD: 123456
       POSTGRES_DB: hotspot_db
     ports:
       - "5433:5432" # Dış portu 5433 yaptık

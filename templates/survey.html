@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ücretsiz Wi-Fi Girişi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">Wi-Fi Ağına Hoş Geldiniz</h1>
+            <p class="text-sm text-gray-500 mt-2">İnternete bağlanmak için lütfen formu doldurun</p>
+        </div>
+
+        <form action="/submit" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Adınız Soyadınız</label>
+                <input type="text" name="full_name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Telefon Numaranız</label>
+                <input type="tel" name="phone" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">İşletmemizden ne kadar memnunsunuz?</label>
+                <select name="satisfaction" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    <option value="5">Çok Memnunum (5)</option>
+                    <option value="4">Memnunum (4)</option>
+                    <option value="3">Orta (3)</option>
+                    <option value="2">Pek Değil (2)</option>
+                    <option value="1">Hiç Memnun Değilim (1)</option>
+                </select>
+            </div>
+            
+            <!-- MikroTik'ten gelen gizli veriler -->
+            <input type="hidden" name="mac" value="{{ mac }}">
+            <input type="hidden" name="link_login" value="{{ link_login }}">
+
+            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
+                Bağlan ve İnternete Çık
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
